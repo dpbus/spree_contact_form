@@ -1,3 +1,4 @@
 Spree::Core::Engine.routes.draw do
-  # Add your extension routes here
+  resources :contact_messages
+  match '/contact' => 'contact_messages#new'
 end

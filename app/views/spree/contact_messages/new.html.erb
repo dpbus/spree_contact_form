@@ -1,0 +1,19 @@
+<div id="contact-form">
+  <%= form_for @contact_message do |f| %>
+    <p>
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>  
+      <%= f.label :message %><br />
+      <%= f.text_area :message, :rows => 10 %>
+    <p>
+    <p>
+      <%= f.submit "Send" %>
+    </p>
+  <% end %>
+</div>

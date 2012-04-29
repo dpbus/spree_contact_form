@@ -1,0 +1,2 @@
+module Spree::ContactMessageHelper
+end
