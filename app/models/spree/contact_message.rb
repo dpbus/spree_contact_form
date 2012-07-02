@@ -4,6 +4,14 @@ class Spree::ContactMessage
   
   attr_accessor :name, :email, :message
   
+  def initialize(attributes = nil)
+    unless attributes.nil?
+      @name = attributes['name'] if attributes['name']
+      @email = attributes['email'] if attributes['email']
+      @message = attributes['message'] if attributes['message']
+    end
+  end
+  
   def persisted?
     false
   end

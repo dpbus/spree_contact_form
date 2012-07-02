@@ -1,19 +1,13 @@
 class Spree::ContactMailer < ActionMailer::Base
-  default from: "from@example.com"
-  def confirm_email(order, resend=false)
-    @order = order
-    subject = (resend ? "[#{t(:resend).upcase}] " : "")
-    subject += "#{Spree::Config[:site_name]} #{t('order_mailer.confirm_email.subject')} ##{order.number}"
-    mail(:to => order.email,
-         :subject => subject)
-  end
+  default from: "info@isabellarosedesigns.com"
   
-  def message_from_visitor(name, email, message)
-    @subject = "[CONTACT] Message from vistor - #{name}"
-    @body = {"message" => message, "name" => name, "email" => email}
-    @recipients = "info@isabellarosedesigns.com"
-    @from = "info@isabellarosedesigns.com"
-    @sent_on = Time.now
+  def message_from_visitor(contact_message)
+    @name = contact_message.name
+    @email = contact_message.email
+    @message = contact_message.message
+    mail(:to => "dpbusse@gmail.com", 
+         :from => "info@isabellarosedesigns.com",
+         :subject => "[CONTACT] Message from vistor - #{@name}")
   end
   
   def tell_a_friend(from, to, product)
